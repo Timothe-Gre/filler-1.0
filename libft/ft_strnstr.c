@@ -3,28 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/05 12:10:25 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/04/13 13:46:53 by ghtouman         ###   ########.fr       */
+/*   Created: 2018/04/13 15:10:29 by tigre             #+#    #+#             */
+/*   Updated: 2018/04/13 19:46:49 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t len)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	size_t i;
-	size_t j;
+	char		*s;
+	size_t		len;
 
-	i = -1;
-	while (s1[++i] && i < len)
+	s = (char *)s1;
+	len = ft_strlen(s2);
+	if (*s2 == '\0')
+		return (s);
+	while (*s && len <= n)
 	{
-		j = 0;
-		while (s1[i + j] && s2[j] && s1[i + j] == s2[j] && i + j < len)
-			j++;
-		if (s2[j] == '\0')
-			return ((char *)s1 + i);
+		if (ft_strncmp(s, s2, len) == 0)
+			return (s);
+		s++;
+		n--;
 	}
 	return (NULL);
 }

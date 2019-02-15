@@ -3,39 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/05 12:04:10 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/04/12 10:57:20 by ghtouman         ###   ########.fr       */
+/*   Created: 2018/04/13 15:41:22 by tigre             #+#    #+#             */
+/*   Updated: 2018/04/13 15:42:01 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
+#include "libft.h"
+
+static int		ft_size(int n)
+{
+	int		i;
+
+	i = 0;
+	if (n <= 0)
+		i++;
+	while (n != 0)
+	{
+		n = n / 10;
+		i++;
+	}
+	return (i);
+}
 
 char			*ft_itoa(int n)
 {
-	char		*str;
-	size_t		len;
-	size_t		i;
-	long int	nb;
+	int		signe;
+	int		size;
+	char	*dst;
 
-	nb = (long int)n;
-	len = ft_intlen(nb);
-	if (!(str = (char*)(malloc(sizeof(char) * (len + 1)))))
+	if (n == 0)
+		return (ft_strdup("0"));
+	signe = n;
+	size = ft_size(n);
+	if (!(dst = (char *)malloc(sizeof(char) * (size + 1))))
 		return (NULL);
-	str[len] = '\0';
-	i = 0;
-	if (nb < 0)
+	dst[size] = '\0';
+	while (size--)
 	{
-		str[i++] = '-';
-		nb = -nb;
+		if (n < 0)
+			dst[size] = -(n % 10) + '0';
+		else
+			dst[size] = n % 10 + '0';
+		n = n / 10;
 	}
-	while (i < len)
-	{
-		str[len - 1] = nb % 10 + '0';
-		nb = nb / 10;
-		len--;
-	}
-	return (str);
+	if (signe < 0)
+		dst[0] = '-';
+	return (dst);
 }

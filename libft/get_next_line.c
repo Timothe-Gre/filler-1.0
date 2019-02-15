@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/31 11:34:27 by ghtouman          #+#    #+#             */
-/*   Updated: 2019/01/14 16:55:49 by ghtouman         ###   ########.fr       */
+/*   Created: 2018/11/29 15:14:20 by tigre             #+#    #+#             */
+/*   Updated: 2019/02/12 13:26:58 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int		clean_fds(char **line, char **fds, char *tmp, int fd)
 {
-	char *bn;
+	char		*bn;
 
 	bn = ft_strchr(fds[fd], '\n');
 	if (bn == NULL)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   filler.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/16 11:34:29 by ghtouman          #+#    #+#             */
-/*   Updated: 2019/02/07 16:53:07 by ghtouman         ###   ########.fr       */
+/*   Created: 2019/02/12 13:00:01 by tigre             #+#    #+#             */
+/*   Updated: 2019/02/12 13:14:10 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct		s_struct
 	int				j;
 	int				x_p;
 	int				y_p;
+	int				check;
+	int				never;
 }					t_struct;
 
 int					get_map_info(t_struct *s, char *line);
@@ -53,7 +55,5 @@ void				get_piece(t_struct *s, char *line);
 void				weight_filler(t_struct *s);
 void				one_for_all(t_struct *s);
 void				place_piece(t_struct *s);
-void				print_map(t_struct storage);
-void				print_map2(t_struct storage);
 
 #endif

@@ -3,24 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/05 12:06:34 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/04/12 10:55:33 by ghtouman         ###   ########.fr       */
+/*   Created: 2018/04/13 14:42:31 by tigre             #+#    #+#             */
+/*   Updated: 2018/04/13 14:42:53 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
 void	ft_putnbr(int n)
 {
-	long int nb;
+	unsigned int	nb;
 
 	nb = n;
-	if (nb < 0)
+	if (n < 0)
 	{
-		nb = nb * (-1);
+		nb = -n;
 		ft_putchar('-');
 	}
 	if (nb >= 10)

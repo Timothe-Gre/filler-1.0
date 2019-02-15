@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/13 14:47:18 by tigre             #+#    #+#             */
-/*   Updated: 2018/11/29 15:37:35 by tigre            ###   ########.fr       */
+/*   Created: 2018/04/13 15:11:31 by tigre             #+#    #+#             */
+/*   Updated: 2018/04/13 20:50:14 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-#include "libft.h"
-
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrev(char *str)
 {
-	while (*s != c)
+	int		len;
+	int		i;
+	char	c;
+
+	i = 0;
+	len = ft_strlen(str);
+	if (!str)
+		return (NULL);
+	while (i < len)
 	{
-		if (*s == '\0')
-			return (NULL);
-		s++;
+		c = str[i];
+		str[i] = str[len - 1];
+		str[len - 1] = c;
+		len--;
+		i++;
 	}
-	return ((char *)s);
+	return (str);
 }

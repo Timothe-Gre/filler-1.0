@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_swapi.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/13 14:47:18 by tigre             #+#    #+#             */
-/*   Updated: 2018/11/29 15:37:35 by tigre            ###   ########.fr       */
+/*   Created: 2018/04/13 15:14:59 by tigre             #+#    #+#             */
+/*   Updated: 2018/04/13 15:15:04 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-#include "libft.h"
-
-char	*ft_strchr(const char *s, int c)
+void	ft_swapi(int *a, int *b)
 {
-	while (*s != c)
-	{
-		if (*s == '\0')
-			return (NULL);
-		s++;
-	}
-	return ((char *)s);
+	int		tmp;
+
+	if (!a || !b)
+		return ;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

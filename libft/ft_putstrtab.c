@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstrtab.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/13 14:47:18 by tigre             #+#    #+#             */
-/*   Updated: 2018/11/29 15:37:35 by tigre            ###   ########.fr       */
+/*   Created: 2018/04/13 20:50:41 by tigre             #+#    #+#             */
+/*   Updated: 2018/04/13 21:24:47 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-#include "libft.h"
-
-char	*ft_strchr(const char *s, int c)
+void	ft_putstrtab(char **tab)
 {
-	while (*s != c)
-	{
-		if (*s == '\0')
-			return (NULL);
-		s++;
-	}
-	return ((char *)s);
+	int	i;
+
+	i = 0;
+	if (!tab)
+		return ;
+	while (tab[i])
+		ft_putendl(tab[i++]);
 }

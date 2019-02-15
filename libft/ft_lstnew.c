@@ -3,44 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/10 13:15:55 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/04/12 10:57:51 by ghtouman         ###   ########.fr       */
+/*   Created: 2018/04/13 15:32:35 by tigre             #+#    #+#             */
+/*   Updated: 2018/04/13 15:32:42 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static void		*ft_memdup(void const *content, size_t content_size)
+t_list		*ft_lstnew(const void *content, size_t content_size)
 {
-	void *copy;
+	t_list	*ptr;
 
-	if (content == NULL)
+	ptr = (t_list *)malloc(sizeof(t_list));
+	if (!ptr)
 		return (NULL);
-	if (!(copy = malloc(content_size)))
-		return (NULL);
-	ft_memcpy(copy, content, content_size);
-	return (copy);
-}
-
-t_list			*ft_lstnew(void const *content, size_t content_size)
-{
-	t_list *my_list;
-
-	if (!(my_list = (t_list*)malloc(sizeof(t_list))))
-		return (NULL);
-	if (content)
+	if (!content || !content_size)
 	{
-		my_list->content = ft_memdup(content, content_size);
-		my_list->content_size = content_size;
+		ptr->content = NULL;
+		ptr->content_size = 0;
 	}
 	else
 	{
-		my_list->content = NULL;
-		my_list->content_size = 0;
+		ptr->content = (void *)malloc(content_size);
+		if (ptr->content == NULL)
+			return (NULL);
+		else
+		{
+			ft_memcpy(ptr->content, content, content_size);
+			ptr->content_size = content_size;
+		}
 	}
-	my_list->next = NULL;
-	return (my_list);
+	ptr->next = NULL;
+	return (ptr);
 }

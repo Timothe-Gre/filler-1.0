@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+         #
+#    By: tigre <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/01/16 11:35:41 by ghtouman          #+#    #+#              #
-#    Updated: 2019/02/07 16:37:13 by ghtouman         ###   ########.fr        #
+#    Created: 2019/02/12 12:59:34 by tigre             #+#    #+#              #
+#    Updated: 2019/02/12 13:00:40 by tigre            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAG = -Wall -Werror -Wextra
 IDIR = ./includes/
-NAME = user.filler
+NAME = tigre.filler
 SRC_PATH = ./srcs/
 LIB_PATH = ./libft/
 LIB = libft/libft.a
